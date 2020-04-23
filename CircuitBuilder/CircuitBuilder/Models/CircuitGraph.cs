@@ -11,12 +11,12 @@ namespace CircuitBuilder.Models
         // First --> Position of Component
         // Second --> Component Object
         // Dictionary Allows Us to Quickly Check if a Position is Taken.
-        private Dictionary<List<int>, CircuitComponent> components { get; set; }
+        private Dictionary<List<int>, CircuitComponent> components;
 
         // Connection Property:
         // First --> Circuit Component
         // Second --> All Adjacent Circuit Components
-        private Dictionary<CircuitComponent, List<CircuitComponent>> connections { get; set; }
+        private Dictionary<CircuitComponent, List<CircuitComponent>> connections;
 
 
         public void addComponent(string componentType, List<int> componentPosition)

@@ -7,8 +7,8 @@ namespace CircuitBuilder.Models
 {
     public class CircuitComponent
     {
-        private string componentType { get; set; }
-        private List<int> componentPosition { get; set; }
+        private string componentType;
+        private List<int> componentPosition;
 
         public CircuitComponent()
         {
