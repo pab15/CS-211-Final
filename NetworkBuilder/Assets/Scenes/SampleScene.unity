@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 27768229}
   - component: {fileID: 27768228}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: xbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -873,7 +873,7 @@ GameObject:
   - component: {fileID: 318615931}
   - component: {fileID: 318615930}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: television
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1467,7 +1467,7 @@ GameObject:
   - component: {fileID: 407141759}
   - component: {fileID: 407141758}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,7 +1602,7 @@ GameObject:
   - component: {fileID: 434674095}
   - component: {fileID: 434674094}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1852,7 +1852,6 @@ GameObject:
   - component: {fileID: 464514860}
   - component: {fileID: 464514859}
   - component: {fileID: 464514861}
-  - component: {fileID: 464514862}
   m_Layer: 5
   m_Name: InventoryRack
   m_TagString: Untagged
@@ -1948,18 +1947,6 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
---- !u!114 &464514862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 464514857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68affa670afcda04ca24a2cbc8ea0c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3049,7 +3036,7 @@ GameObject:
   - component: {fileID: 812142414}
   - component: {fileID: 812142413}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: router
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3647,7 +3634,7 @@ GameObject:
   - component: {fileID: 1107136761}
   - component: {fileID: 1107136760}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: accesspoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5228,7 +5215,7 @@ GameObject:
   - component: {fileID: 1862737773}
   - component: {fileID: 1862737772}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: computer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5438,7 +5425,7 @@ GameObject:
   - component: {fileID: 1975635153}
   - component: {fileID: 1975635154}
   m_Layer: 5
-  m_Name: ItemImage
+  m_Name: switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -27,6 +27,7 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
         if (isOverDrop)
         {
             transform.SetParent(dropZone.transform, false);
+            Debug.Log(transform.gameObject.name);
         }
         else
         {
