@@ -27,7 +27,17 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
         if (isOverDrop)
         {
             transform.SetParent(dropZone.transform, false);
+            foreach (Location location in GameManager.allLocations)
+            {
+                if (location.getLocationName() == transform.parent.gameObject.name)
+                {
+                    NetworkNode newNode = new NetworkNode(transform.gameObject.name, location);
+                    GameManager.graph.addNode(newNode);
+                    break;
+                }
+            }
             Debug.Log(transform.gameObject.name);
+            Debug.Log(transform.parent.gameObject.name);
         }
         else
         {

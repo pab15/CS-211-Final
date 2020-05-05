@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 100074665}
   - component: {fileID: 100074664}
   m_Layer: 5
-  m_Name: ItemLayoutB2
+  m_Name: bedroom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1319,7 +1319,7 @@ GameObject:
   - component: {fileID: 383419311}
   - component: {fileID: 383419310}
   m_Layer: 5
-  m_Name: ItemLayoutHW
+  m_Name: hallway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2237,7 +2237,7 @@ GameObject:
   - component: {fileID: 668349451}
   - component: {fileID: 668349450}
   m_Layer: 5
-  m_Name: ItemLayoutKC
+  m_Name: kitchen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2888,7 +2888,7 @@ GameObject:
   - component: {fileID: 768133252}
   - component: {fileID: 768133251}
   m_Layer: 5
-  m_Name: ItemLayoutB1
+  m_Name: bedroom1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3887,7 +3887,7 @@ GameObject:
   - component: {fileID: 1183638513}
   - component: {fileID: 1183638514}
   m_Layer: 5
-  m_Name: ItemLayoutB3
+  m_Name: bedroom3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4337,7 +4337,7 @@ GameObject:
   - component: {fileID: 1427707134}
   - component: {fileID: 1427707133}
   m_Layer: 5
-  m_Name: ItemLayoutLR
+  m_Name: livingroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

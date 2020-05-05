@@ -11,6 +11,11 @@ public class ConnectionPath : IComparable<ConnectionPath>, IEnumerable<Location>
     {
 
     }
+    public ConnectionPath(List<Location> locations, int weight)
+    {
+        this.pathWeight = weight;
+        this.locations = locations;
+    }
     public ConnectionPath(ConnectionPath toCopy)
     {
         this.pathWeight = toCopy.getPathWeight();
@@ -69,4 +74,4 @@ public class ConnectionPath : IComparable<ConnectionPath>, IEnumerable<Location>
         return ((IEnumerable<Location>)locations).GetEnumerator();
     }
 }
-}
+

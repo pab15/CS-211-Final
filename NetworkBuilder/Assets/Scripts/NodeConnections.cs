@@ -19,6 +19,7 @@ public class NodeConnections
     {
         this.startNode = startNode;
         this.endNode = endNode;
+        computeConnection();
     }
     public void setStartNode(NetworkNode startNode)
     {
@@ -47,6 +48,9 @@ public class NodeConnections
             if (this.startNode.getNodeLocation() == this.endNode.getNodeLocation())
             {
                 this.connectionLength = this.startNode.getNodeLocation().getLocationLength();
+                List<Location> toAdd = new List<Location>();
+                toAdd.Add(this.startNode.getNodeLocation());
+                this.connectionPath = new ConnectionPath(toAdd, this.connectionLength);
             }
             else
             {
@@ -55,6 +59,7 @@ public class NodeConnections
                 Dictionary<Location, int> discoveredLocations = new Dictionary<Location, int>();
 
                 discoveredPath.addLocation(startNode.getNodeLocation());
+                discoveredLocations.Add(startNode.getNodeLocation(), 1);
 
                 pathQueue.Enqueue(discoveredPath);
                 bool found = false;
@@ -64,31 +69,30 @@ public class NodeConnections
                 {
                     ConnectionPath current_path = new ConnectionPath(pathQueue.GetFirst());
                     pathQueue.Dequeue();
-                    Location currentLocation = new Location(current_path.GetMostRecentLocation());
+                    Location currentLocation = current_path.GetMostRecentLocation();
 
                     for (int i = 0; i < currentLocation.getAdjacentLocations().Count; i++)
                     {
                         ConnectionPath new_path = new ConnectionPath(current_path);
-                        Location neighborLocation = new Location(currentLocation.getAdjacentLocations()[i]);
+                        Location neighborLocation = currentLocation.getAdjacentLocations()[i];
 
-                        var visitedLocation = neighborLocation;
 
-                        if (visitedLocation.getLocationLength() == -1)
+                        if (neighborLocation.getLocationLength() == -1)
                         {
                             continue;
                         }
-                        if (visitedLocation == this.endNode.getNodeLocation())
+                        if (neighborLocation.getLocationName() == this.endNode.getNodeLocation().getLocationName())
                         {
-                            new_path.addLocation(visitedLocation);
+                            new_path.addLocation(neighborLocation);
                             discoveredPath = new_path;
                             found = true;
                             break;
                         }
-                        else if (discoveredLocations.ContainsKey(visitedLocation) == false)
+                        else if (discoveredLocations.ContainsKey(neighborLocation) == false)
                         {
-                            new_path.addLocation(visitedLocation);
+                            new_path.addLocation(neighborLocation);
                             pathQueue.Enqueue(new_path);
-                            discoveredLocations.Add(visitedLocation, 1);
+                            discoveredLocations.Add(neighborLocation, 1);
                             count++;
                         }
                     }
