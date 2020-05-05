@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -33,6 +34,14 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
                 {
                     NetworkNode newNode = new NetworkNode(transform.gameObject.name, location);
                     GameManager.graph.addNode(newNode);
+                    GameManager.graph.setGraph(GameManager.graph.findFinalGraph().getGraph());
+                    foreach (NetworkNode key in GameManager.graph.getGraph().Keys.ToList())
+                    {
+                        foreach (NodeConnections connection in GameManager.graph.getGraph()[key])
+                        {
+                            GameManager.exposeLine(GameManager.connectionLines, connection);
+                        }
+                    }
                     break;
                 }
             }

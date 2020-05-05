@@ -8,7 +8,6 @@ public class Location
     private string locationName;
     private int locationLength;
     private List<Location> adjacentLocations = new List<Location>();
-    private Vector3 coordinates;
     public Location()
     {
 
@@ -23,12 +22,6 @@ public class Location
     {
         this.locationName = locationName;
         this.locationLength = locationLength;
-    }
-    public Location(string locationName, int locationLength, Vector3 coordinates)
-    {
-        this.locationName = locationName;
-        this.locationLength = locationLength;
-        this.coordinates = coordinates;
     }
     public string getLocationName()
     {
@@ -45,14 +38,6 @@ public class Location
     public void setLocationLength(int locationLength)
     {
         this.locationLength = locationLength;
-    }
-    public Vector3 getCoordinates()
-    {
-        return this.coordinates;
-    }
-    public void setCoordinates(Vector3 coordinates)
-    {
-        this.coordinates = coordinates;
     }
     public List<Location> getAdjacentLocations()
     {

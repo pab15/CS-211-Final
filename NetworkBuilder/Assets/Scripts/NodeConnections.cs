@@ -37,6 +37,38 @@ public class NodeConnections
     {
         return this.endNode;
     }
+    public bool areSameConnections(NodeConnections otherConnection)
+    {
+        if (this.startNode == otherConnection.getStartNode() && this.endNode == otherConnection.getEndNode())
+        {
+            return true;
+        }
+        else if (this.endNode == otherConnection.getStartNode() && this.startNode == otherConnection.getEndNode())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }    
+    }
+    public bool haveSameLocations(NodeConnections otherConnection)
+    {
+        if (this.startNode.getNodeLocation() == otherConnection.getStartNode().getNodeLocation() 
+            && this.endNode.getNodeLocation() == otherConnection.getEndNode().getNodeLocation())
+        {
+            return true;
+        }
+        else if (this.endNode.getNodeLocation() == otherConnection.getStartNode().getNodeLocation()
+            && this.startNode.getNodeLocation() == otherConnection.getEndNode().getNodeLocation())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     private void computeConnection()
     {
         if (this.startNode.testCompatibility(this.endNode) == false)
