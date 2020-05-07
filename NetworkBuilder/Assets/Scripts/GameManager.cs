@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public static List<Location> allLocations = new List<Location>();
 
     public static Dictionary<NodeConnections, GameObject> connectionLines = new Dictionary<NodeConnections, GameObject>();
+    public static Dictionary<NodeConnections, GameObject> activeLines = new Dictionary<NodeConnections, GameObject>();
 
     // Living Room Connections:
     public static NodeConnections livingRoomToHallway = new NodeConnections(new NetworkNode("base", livingRoom), new NetworkNode("base", hallway));
@@ -158,6 +159,10 @@ public class GameManager : MonoBehaviour
             if (connection.haveSameLocations(connectionVal) == true)
             {
                 connectionLineVals[connection].SetActive(true);
+                if (activeLines.ContainsKey(connection) == false)
+                {
+                    activeLines.Add(connection, connectionLineVals[connection]);
+                }
                 break;
             }
         }

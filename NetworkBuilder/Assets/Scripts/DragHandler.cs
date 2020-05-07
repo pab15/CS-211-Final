@@ -32,6 +32,12 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
             {
                 if (location.getLocationName() == transform.parent.gameObject.name)
                 {
+                    foreach (NodeConnections connection in GameManager.activeLines.Keys.ToList())
+                    {
+                        GameManager.activeLines[connection].SetActive(false);
+                    }
+                    GameManager.activeLines.Clear();
+
                     NetworkNode newNode = new NetworkNode(transform.gameObject.name, location);
                     GameManager.graph.addNode(newNode);
                     GameManager.graph.setGraph(GameManager.graph.findFinalGraph().getGraph());
@@ -45,8 +51,6 @@ public class DragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
                     break;
                 }
             }
-            Debug.Log(transform.gameObject.name);
-            Debug.Log(transform.parent.gameObject.name);
         }
         else
         {
