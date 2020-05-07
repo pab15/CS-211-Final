@@ -104,19 +104,29 @@ public class NetworkGraph
             {
                 if (existingNode.testCompatibility(newNode) == true)
                 {
-                    NodeConnections newConnectionToOld = new NodeConnections(newNode, existingNode);
-                    NodeConnections oldConnectionToNew = new NodeConnections(existingNode, newNode);
-                    this.nodes[existingNode].Add(oldConnectionToNew);
-                    if (this.nodes.ContainsKey(newNode) == true)
+                    if (existingNode.getNodeName() == "router" || existingNode.getNodeName() == "switch" || existingNode.getNodeName() == "accesspoint")
                     {
-                        this.nodes[newNode].Add(newConnectionToOld);
+                        NodeConnections oldConnectionToNew = new NodeConnections(existingNode, newNode);
+                        this.nodes[existingNode].Add(oldConnectionToNew);
+                        if (this.nodes.ContainsKey(newNode) == false)
+                        {
+                            this.nodes.Add(newNode, new List<NodeConnections>());
+                        }
                     }
-                    else
+                    else if (newNode.getNodeName() == "router" || newNode.getNodeName() == "switch" || newNode.getNodeName() == "accesspoint")
                     {
-                        List<NodeConnections> toAdd = new List<NodeConnections>();
-                        toAdd.Add(newConnectionToOld);
-                        this.nodes.Add(newNode, toAdd);
-                    }
+                        NodeConnections newConnectionToOld = new NodeConnections(newNode, existingNode);
+                        if (this.nodes.ContainsKey(newNode) == true)
+                        {
+                            this.nodes[newNode].Add(newConnectionToOld);
+                        }
+                        else
+                        {
+                            List<NodeConnections> toAdd = new List<NodeConnections>();
+                            toAdd.Add(newConnectionToOld);
+                            this.nodes.Add(newNode, toAdd);
+                        }
+                    }     
                 }
             }
         }
@@ -124,28 +134,32 @@ public class NetworkGraph
     public NetworkGraph findFinalGraph()
     {
         NetworkGraph returnGraph = new NetworkGraph();
-        Dictionary<NodeConnections, int> visitedConnections = new Dictionary<NodeConnections, int>();
+        Dictionary<NetworkNode, NodeConnections> endPoints = new Dictionary<NetworkNode, NodeConnections>();
         foreach (NetworkNode existingNode in this.nodes.Keys.ToList())
         {
             returnGraph.insertNode(existingNode);
-            foreach (NodeConnections connection in this.nodes[existingNode])
+            if (this.nodes[existingNode].Count > 0)
             {
-                bool foundExistingConnection = false;
-                foreach (NodeConnections visitedConnection in visitedConnections.Keys.ToList())
+                foreach (NodeConnections connection in this.nodes[existingNode])
                 {
-                    if (connection.areSameConnections(visitedConnection) == true)
+                    if (endPoints.ContainsKey(connection.getEndNode()) == true)
                     {
-                        foundExistingConnection = true;
-                        break;
+                        NodeConnections test = endPoints[connection.getEndNode()];
+                        if (endPoints[connection.getEndNode()].getConnectionLength() >= connection.getConnectionLength())
+                        {
+                            endPoints[connection.getEndNode()] = connection;
+                        }
+                    }
+                    else
+                    {
+                        endPoints.Add(connection.getEndNode(), connection);
                     }
                 }
-                if (foundExistingConnection == false)
-                {
-                    visitedConnections.Add(connection, 1);
-                    returnGraph.insertConnection(existingNode, connection);
-                }
-
             }
+        }
+        foreach (NetworkNode endPoint in endPoints.Keys.ToList())
+        {
+            returnGraph.insertConnection(endPoints[endPoint].getStartNode(), endPoints[endPoint]);
         }
         return returnGraph;
     }

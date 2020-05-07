@@ -37,6 +37,22 @@ public class NodeConnections
     {
         return this.endNode;
     }
+    public void setConnectionPath(ConnectionPath connectionPath)
+    {
+        this.connectionPath = connectionPath;
+    }
+    public ConnectionPath getConnectionPath()
+    {
+        return this.connectionPath;
+    }
+    public void setConnectionLength(int connectionLength)
+    {
+        this.connectionLength = connectionLength;
+    }
+    public int getConnectionLength()
+    {
+        return this.connectionLength;
+    }
     public bool areSameConnections(NodeConnections otherConnection)
     {
         if (this.startNode == otherConnection.getStartNode() && this.endNode == otherConnection.getEndNode())
@@ -67,6 +83,17 @@ public class NodeConnections
         else
         {
             return false;
+        }
+    }
+    public NodeConnections getBestPath(NodeConnections otherConnection)
+    {
+        if (this.connectionLength >= otherConnection.getConnectionLength())
+        {
+            return this;
+        }
+        else
+        {
+            return otherConnection;
         }
     }
     private void computeConnection()
