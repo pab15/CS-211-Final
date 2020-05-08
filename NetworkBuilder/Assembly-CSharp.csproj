@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\NetworkGraph.cs" />
     <Compile Include="Assets\Scripts\NetworkNode.cs" />
     <Compile Include="Assets\Scripts\NodeConnections.cs" />
+    <Compile Include="Assets\Scripts\OnClickStartOver.cs" />
     <Compile Include="Assets\Scripts\PriorityQueue.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/Peter/Desktop/Courses/2020-Spring/CS-211/Projects/CS-211-Final/NetworkBuilder/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
     public static GameObject lineHallwayToBedroomThree;
     public static GameObject lineKitchenToBedroomOne;
     public static GameObject lineKitchenToBedroomTwo;
-    public static GameObject lineKitchenToBedroomThree;
     public static GameObject lineBedroomOneToBedroomTwo;
     public static GameObject lineBedroomOneToBedroomThree;
     public static GameObject lineBedroomTwoToBedroomThree;
@@ -80,7 +79,6 @@ public class GameManager : MonoBehaviour
 
         // Kitchen Adjacents:
         kitchen.addAdjacentLocation(hallway);
-        kitchen.addAdjacentLocation(bedroomThree);
 
         // Bedroom Two Adjacents:
         bedroomTwo.addAdjacentLocation(hallway);
@@ -89,7 +87,6 @@ public class GameManager : MonoBehaviour
 
         // Bedroom Three Adjacents:
         bedroomThree.addAdjacentLocation(hallway);
-        bedroomThree.addAdjacentLocation(kitchen);
         bedroomThree.addAdjacentLocation(bedroomTwo);
 
         // Add Locations to List:
@@ -112,7 +109,6 @@ public class GameManager : MonoBehaviour
         lineHallwayToBedroomThree = GameObject.Find("hallwayToBedroomThree");
         lineKitchenToBedroomOne = GameObject.Find("kitchenToBedroomOne");
         lineKitchenToBedroomTwo = GameObject.Find("kitchenToBedroomTwo");
-        lineKitchenToBedroomThree = GameObject.Find("kitchenToBedroomThree");
         lineBedroomOneToBedroomTwo = GameObject.Find("bedroomOneToBedroomTwo");
         lineBedroomOneToBedroomThree = GameObject.Find("bedroomOneToBedroomThree");
         lineBedroomTwoToBedroomThree = GameObject.Find("bedroomTwoToBedroomThree");
@@ -129,7 +125,6 @@ public class GameManager : MonoBehaviour
         lineHallwayToBedroomThree.SetActive(false);
         lineKitchenToBedroomOne.SetActive(false);
         lineKitchenToBedroomTwo.SetActive(false);
-        lineKitchenToBedroomThree.SetActive(false);
         lineBedroomOneToBedroomTwo.SetActive(false);
         lineBedroomOneToBedroomThree.SetActive(false);
         lineBedroomTwoToBedroomThree.SetActive(false);
@@ -146,7 +141,6 @@ public class GameManager : MonoBehaviour
         connectionLines.Add(hallwayToBedroomThree, lineHallwayToBedroomThree);
         connectionLines.Add(kitchenToBedroomOne, lineKitchenToBedroomOne);
         connectionLines.Add(kitchenToBedroomTwo, lineKitchenToBedroomTwo);
-        connectionLines.Add(kitchenToBedroomThree, lineKitchenToBedroomThree);
         connectionLines.Add(bedroomOneToBedroomTwo, lineBedroomOneToBedroomTwo);
         connectionLines.Add(bedroomOneToBedroomThree, lineBedroomOneToBedroomThree);
         connectionLines.Add(bedroomTwoToBedroomThree, lineBedroomTwoToBedroomThree);
